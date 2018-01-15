@@ -1,4 +1,4 @@
-package com.fbb.jjz.task;
+package com.fbb.jjz.helper;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
