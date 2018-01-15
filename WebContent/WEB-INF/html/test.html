@@ -1,0 +1,95 @@
+[INFO] - [14:52:31.146]result
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<title>进京证在线申请</title>
+<link rel="stylesheet"
+	href="/enterbj/static_resources/enterbj/css/base.css" />
+<link rel="stylesheet"
+	href="/enterbj/static_resources/enterbj/css/jjz.css" />
+<link rel="stylesheet"
+	href="/enterbj/static_resources/enterbj/css/app.css" />
+<!-- <link rel="stylesheet" type="text/css"     href="/enterbj/static_resources/enterbj/css/mui.min.css" /> -->
+<link rel="stylesheet" type="text/css"
+	href="/enterbj/static_resources/enterbj/css/mui.picker.min.css" />
+<script src="/enterbj/static_resources/enterbj/js/jquery-1.11.1.min.js"></script>
+<script src="/enterbj/static_resources/enterbj/js/adddate.js"></script>
+</head>
+<body>
+	<!-- 温馨提示弹窗 -->
+	<!-- <div class="Divblack none" id="Divblack">	<div class="fbox">		<h2>温馨提示</h2>		<p>根据北京市《关于应对空气重污染采取临时交通管理措施的通告》及《关于对国I及国II排放标准轻型汽油车采取交通管理措施的通告》相关规定:</p>			<P>（一）自2016年12月15日起，遇北京市启动空气重污染预警二级（橙色）指令时，全市范围国Ⅰ、国Ⅱ排放标准的汽油车（含驾校教练车）禁止上路行驶。遇北京市启动空气重污染预警一级（红色）指令时，国Ⅰ和国Ⅱ排放标准轻型汽油车（含驾校教练车）全天禁止在本市行政区域内道路行驶;每天3时至24时，国Ⅲ及以上排放标准机动车（含驾校教练车）按车牌尾号实行单号单日、双号双日行驶（单号为1、3、5、7、9，双号为2、4、6、8、0）“二〇〇二”式号牌和车牌尾号为英文字母的机动车按双号管理。同时，本市暂停实施工作日高峰时段区域限行交通管理措施；但工作日7时至9时、17时至20时，禁止外省区市机动车在本市五环路以内道路（含五环路）行驶。</P>      <P>（二）自2017年2月15日起,国I及国Ⅱ排放标准轻型汽油车工作日(因法定节假日放假调休而调整为上班的星期六、星期日除外)禁止在本市五环路（不含）以内区域道路行驶。对于机动车违反相关规定的，公安交通管理部门将依法予以处罚。</P>		<div class="inpDiv">		   <input type="checkbox" id="check" checked="true"/>		   <label for="check">我已阅读并承诺严格遵守以上规定。</label>			</div>			<button class="btn" onclick="hideDivblack()">确定</button>	</div></div> -->
+	<!-- 提示弹窗 -->
+	<!-- 国1国2提示 -->
+	<div class="popup none" style="position: fixed;" id="popup">
+		<div>
+			<h5>温馨提示</h5>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您的车辆属于国I、国II排放标准汽油车，根据北京市《空气重污染应急预案》及《关于对国I及国II排放标准轻型汽油车采取交通管理措施的通告》相关规定，目前北京市启动空气重污染预警二级（橙色）及以上级别指令，全市范围内国Ⅰ、国Ⅱ排放标准的汽油车禁止上路行驶，暂停为您的车辆办理进京证。感谢您的理解与支持。</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如对车辆环保类型或相关环保政策有疑问，请拨打北京市环保局咨询电话“12369”进行咨询。</p>
+			<a href="javascript:;" id="aaa" onClick="$('#popup').hide()">知道了</a>
+		</div>
+	</div>
+	<!-- 黄标车提示 -->
+	<div class="popup none" style="position: fixed;" id="popup2">
+		<div>
+			<h5>温馨提示</h5>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;经本市环保主管部门确认，您的车辆不符合相关环保要求。</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如对环保政策有疑问，请拨打北京市环保局咨询电话“12369”进行咨询。</p>
+			<a href="javascript:;" id="aaa" onClick="$('#popup2').hide()">知道了</a>
+		</div>
+	</div>
+	<!-- 	loading -->
+	<div class="blac none">
+		<img src="/enterbj/static_resources/enterbj/images/loading.gif" alt="" />
+	</div>
+	<div id="tanwindow"></div>
+	<p class="pppp" style="text-indent: 2em;">
+		自2016年12月15日起，遇北京市启动空气重污染预警二级（橙色）及以上级别指令时，全市范围国Ⅰ、国Ⅱ排放标准的汽油车禁止上路行驶。<br />
+		<span style="text-indent: 2em;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;自2017年2月15日起，国Ⅰ、国Ⅱ排放标准的汽油车工作日(因法定节假日放假调休而调整为上班的星期六、星期日除外)禁止在本市五环路（不含）以内区域道路行驶”。</span>
+	</p>
+	<div class="choose">
+		<form action="/enterbj/platform/enterbj/applyBjMessage"
+			id="submitForm" method="post">
+			<input name="appsource" id="appsource" value="" type="hidden" /> <input
+				id="hiddentime" name="hiddentime" type="hidden" value=""> <input
+				id="applyid" name="applyid" value="" type="hidden" /> <input
+				id="userid" name="userid" value="" type="hidden" /> <input
+				id="applystatus" name="applystatus" value="" type="hidden">
+			<input id="carid" name="carid" value="" type="hidden"> <input
+				id="gpslon" name="gpslon" value="" type="hidden"> <input
+				id="gpslat" name="gpslat" value="" type="hidden"> <input
+				id="imei" name="imei" value="" type="hidden"> <input
+				id="imsi" name="imsi" value="" type="hidden"> <input
+				id="vehicletype" name="vehicletype" value="" type="hidden">
+			<input name="licenseno" id="licenseno" type="hidden" value="">
+			<input name="envGrade" id="envGrade" type="hidden">
+			<h2 style="height: inherit;!important">
+				请输入以下信息进行环保等级验证：
+				<p class="red" style="font-size: 0.22rem; margin-top: -0.3rem;">(请严格按照行驶证上登记的信息填写，否则审核不通过)
+				</p>
+			</h2>
+			<ul class="car_3">
+				<li><span class="left">车辆品牌型号</span> <input type="text"
+					placeholder="请输入您的车辆品牌型号" class="left" id="carmodel"
+					name="carmodel" value="" /></li>
+				<li><span class="left">车辆注册日期</span> <input type="text"
+					class="left" id="carregtime" name="carregtime" value=""
+					placeholder="请输入您车辆的注册日期" onclick="SelectDate(this,'yyyy-MM-dd')"
+					readonly="readonly" /></li>
+			</ul>
+		</form>
+	</div>
+	<div class="canzhao">
+		<img src="/enterbj/static_resources/enterbj/images/img_cz.jpg" />
+	</div>
+	<a href="javascript:;" class="lastbtn nop" id="btn">核验环保等级</a>
+	<a onClick="window.location.href='/enterbj/jsp/enterbj/env.jsp'"
+		class="look blue" style="font-size: 0.22rem; padding: 0.2rem 0">查看详细环保政策规定</a>
+	<script src="/enterbj/static_resources/enterbj/js/move.js"></script>
+	<script type="text/javascript">	function hideDivblack(){				// 环保等级核查		     // openloading();			openloading();				 $.ajax({				type:"post",				url:"/enterbj/platform/enterbj/checkenvgrade",				data:{appsource:$("#appsource").val(), userid:$("#userid").val(), carid:$("#carid").val(), licenseno:$("#licenseno").val(), carmodel:$("#carmodel").val(), carregtime:$("#carregtime").val()},				dataType: "json",				success:function(msg){					closeloading();					var envGrade = msg.envGrade;					if(msg.rescode ==200){						 $("#envGrade").val(envGrade);					     $('#submitForm').submit();					} else {												if (envGrade == 1) {							// 黄标车							$("#popup2").show();						} else if (envGrade == 2) {						    // 国1国2						    $("#popup").show();						} else {							var tanwindowstr = "<div class='tan'>"+msg.resdes+"</div>";							$("#tanwindow").append(tanwindowstr);						}					}				}			 });				}	$(function(){	    //服务器时间	   var fwDate = ""; 	   /* 去掉app里的广告 */	    $("iframe").hide();		$("frame").hide();		 $('#carmodel').blur(function(){			  $(this).val($.trim($(this).val().toUpperCase()));		 });		$('#btn').click(function(){		/* 显示提示弹窗 */		 var carmodel = $('#carmodel').val();		 var carregtime = $.trim($('#carregtime').val());		 var hz = /[\u4E00-\u9FA5]/g;			/* 失去焦点小写转大写 */			if(hz.test(carmodel)||carmodel==""){		      var tanwindowstr = "<div class='tan'><p style='text-align:center;'>请输入正确的车辆品牌型号！</p><p style='text-align:center;'>注意：车辆品牌型号只需输入其中的大写英文字母和数字组合即可，请勿输入中文品牌字样！</p></div>";			  $("#tanwindow").append(tanwindowstr);			   return ;		     };		     if(carregtime==""){		     	 var tanwindowstr = "<div class='tan'>请选择注册日期</div>";			     $("#tanwindow").append(tanwindowstr);			     return ;		     };		     if(new Date(carregtime)>new Date(fwDate)){		     	 var tanwindowstr = "<div class='tan'>您的车辆注册日期选择错误，请查证后重新输入</div>";			     $("#tanwindow").append(tanwindowstr);			     return ;		     };		     hideDivblack();		     		//$('#Divblack').removeClass('none');		});			});	</script>
+</body>
+</html>
+| (MainTask^main:36)

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<title>进京证在线办理</title>
+<link rel="stylesheet"
+	href="../../static_resources/enterbj/css/base.css" />
+<link rel="stylesheet" href="../../static_resources/enterbj/css/jjz.css" />
+<script src="../../static_resources/enterbj/js/jquery-1.11.1.min.js"></script>
+<script src="../../static_resources/enterbj/js/move.js"></script>
+<script src="../../static_resources/enterbj/js/index.js"></script>
+<script type="text/javascript"
+	src="../../static_resources/enterbj/js/md5_sign.js"></script>
+<script src="https://s95.cnzz.com/z_stat.php?id=1260761932&web_id=1260761932"></script>
+<style>
+.faW_h5_container{
+margin-top:0;
+}
+</style>
+</head>
+<body>
+	<div id="tanwindow2"></div>
+	<!-- 	loading -->
+	<div class="blac none">
+		<img src="../../static_resources/enterbj/images/loading.gif" alt="" />
+	</div>
+
+	<div class="dec" style="top:0;display:none;">
+
+		
+	</div>
+	
+
+	<div class="choose">
+		<h2>
+			车辆及进京证信息
+			<button class="none right shenqings" id="flushbtn">刷新</button>
+		</h2>
+		<div class="ulcar_f" id="mycardiv"></div>
+
+	</div>
+	<div class="imgBox none" id="adDiv" style="margin-top: 0.2rem;">
+		<img id="adImg" src="../../static_resources/enterbj/images/bg12_04.jpg" alt="" style="width: 100%" />
+	</div>
+	
+	<div class="choose">
+		<h2 class="iosShow" style="display:none;">办理须知</h2>
+		<div class="tabBox andirodShow" style="display:none;margin-top: 0.2rem;">
+			<span class="spantitle one">办理须知</span><span class="spantitle two spanSelect">车主资讯</span>
+		</div>
+		<div class="show" style="display:none;">
+			<p>1、每个注册用户最多可为1辆机动车申请办理电子进京证；</p>
+			<p>2、每名驾驶员同一时间只能为1辆机动车申请办理电子进京证；</p>
+			<p>3、用户至少需提前1天预约办理电子进京证，最多可提前4天预约办理。</p>
+			<p>4、电子进京证有效期为2至7天；</p>
+			<p>5、电子进京证只能在已办理证有效期截止当日申请办理新一周期电子进京证；</p>
+			<p>6、电子进京证一经申请成功，不能随意修改，请合理选择出行时间。</p>
+			<p class="red">7、国Ⅰ及国Ⅱ排放标准轻型汽油车工作日（因法定节假日放假调休而调整为上班的星期六、星期日除外）禁止在本市五环路（不含）以内区域道路行驶。</p>
+			<p class="red">8、自2017年9月21日起，每天0时至6时进入六环路（含）以内道路行驶的外省、区、市核发号牌（含临时号牌）的柴油载货汽车，符合国四及以上排放标准（整车运送鲜活农产品的载货汽车除外）须办理进京通行证件。每天0时至6时进入六环路（含）以内道路行驶的外省、区、市核发号牌（含临时号牌）的柴油载货汽车，符合国三排放标准且经相关管理部门确认为保障本市生产生活需求的，也可办理进京通行证件。6时至24时，六环路（含）以内道路禁止外省、区、市核发号牌（含临时号牌）的载货汽车通行。</p>
+			<p>
+				9、以下情形不予办理电子进京证：<br /> （1）驾驶员驾驶证、机动车行驶证等信息填写不正确的；<br />
+				（2）驾驶员或机动车状态不正常的（如：驾驶证逾期未换证、机动车逾期未检验等）；<br />
+				（3）机动车在北京市存在未处理交通违法行为的；<br /> （4）驾驶员或机动车已存在有效进京证的；<br />
+				（5）黄标车及摩托车不予办理进京证；<br />
+				（6）车辆初次登记日期在2013年7月1日（含）以前的柴油载货汽车。<br/>
+			</p>
+			<p>10、电子进京证申请不成功的可到进京检查站窗口现场办理纸质进京证。</p>
+		</div>
+		
+		<div class="andirodShowText" style="display:none;min-height:300px;">
+			<iframe style="min-height:300px;width: 100%;display:block;" name="content_frame"  marginwidth=0  marginheight=0 width=100%  src="https://jiaojing.ynet.com/jiaoguan/app.html?jiaoguan3" frameborder=0></iframe>
+			<div class="moreList" style="margin: 21px auto;text-align: center">查看更多 ></div>
+		</div>
+		
+	</div>
+
+	<!--<div style="height: 1.1rem"></div>  -->
+	<!--  <a href="${path}/jsp/enterbj/wcar.jsp" class="lastbtn">外地车进京注意事项</a>-->
+
+	<!-- hidden form -->
+	<form action="../../platform/enterbj/loadpaper" method="post" id="see"
+		style="display: none">
+		<input id="apply1" name="applyid" value="">
+	</form>
+	<form action="../../platform/enterbj/toVehicleType" method="post"
+		id="applybj" style="display: none">
+		<input id="apply2" name="applyid" value=""> <input id="carid"
+			name="carid" value=""> <input id="userid" name="userid"
+			value=""> <input id="gpslon" name="gpslon" value="">
+		<input id="gpslat" name="gpslat" value=""> <input id="imei"
+			name="imei" value=""> <input id="imsi" name="imsi" value="">
+		<input id="licenseno" name="licenseno" />
+		<input id="cartype" name="cartype" type="hidden"/>
+		<!-- App来源 -->
+		<input id="appsource" name="appsource" type="hidden">
+	</form>
+</body>
+<script>
+if ($('body a').attr('title', '站长统计')) {
+  $('body a').text('');
+}
+var u = navigator.userAgent;
+var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android??
+var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios??
+$(function(){
+	if(isiOS){
+		$(".dec").css("margin-top","-160px")
+	}
+	if(isAndroid || isiOS){
+		$("iosShow").css("display","none");
+		$(".andirodShow").css("display","block");
+		$(".andirodShowText").css("display","block")
+		$("iframe").css("display","block");
+		$(".moreList").click(function(){
+			window.location.href = "https://jiaojing.ynet.com/skill.html?jiaoguan3";
+		})
+		$(".spantitle").click(function(){
+			if($(this).attr("class").indexOf("spanSelect") < 0){
+				$(this).addClass("spanSelect")
+				if($(this).html() == "办理须知"){
+					$(".two").removeClass("spanSelect")
+					$(".show").css("display","block")
+					$(".andirodShowText").css("display","none")
+				}
+				if($(this).html() == "车主资讯"){
+					$(".one").removeClass("spanSelect")
+					$(".show").css("display","none")
+					$(".andirodShowText").css("display","block")
+					
+				}
+			}else{
+				
+			}
+		})
+		
+	}
+// 	else if(isiOS){
+// 		$(".iosShow").css("display","block");
+// 		$(".andirodShow").css("display","none")
+// 		$(".showIos").css("display","block");
+// 		$(".show").css("display","block")
+// 	}
+})
+function toggleSelect(){
+	console.log($(this).attr("class"))
+}
+</script>
+</html>
