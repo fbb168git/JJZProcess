@@ -13,7 +13,7 @@ public class ApplyStatus {
     
     public String userid;
     public String carid;
-    public String apply_staus;
+    public String apply_status;
     public Date enterbjstart;
     public Date enterbjend;
     public Date apply_time;
@@ -24,7 +24,7 @@ public class ApplyStatus {
         super();
         this.userid = userid;
         this.carid = carid;
-        this.apply_staus = apply_staus;
+        this.apply_status = apply_staus;
         this.enterbjstart = enterbjstart;
         this.enterbjend = enterbjend;
         this.apply_time = apply_time;

@@ -130,7 +130,7 @@ public class ApplyStatusDao {
         try {
             bean.userid = resultSet.getString("userid");
             bean.carid = resultSet.getString("carid");
-            bean.apply_staus = resultSet.getString("apply_staus");
+            bean.apply_status = resultSet.getString("apply_status");
             bean.enterbjstart = resultSet.getDate("enterbjstart");
             bean.enterbjend = resultSet.getDate("enterbjend");
             bean.apply_time = resultSet.getDate("apply_time");
@@ -158,7 +158,7 @@ public class ApplyStatusDao {
                 pstmt = conn.prepareStatement(sql_add_or_upate);
                 pstmt.setString(1, bean.userid);
                 pstmt.setString(2, bean.carid);
-                pstmt.setString(3, bean.apply_staus);
+                pstmt.setString(3, bean.apply_status);
                 pstmt.setDate(4, new java.sql.Date(bean.enterbjstart.getTime()));
                 pstmt.setDate(5, new java.sql.Date(bean.enterbjend.getTime()));
                 pstmt.setDate(6, new java.sql.Date(bean.apply_time.getTime()));
